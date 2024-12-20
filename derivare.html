@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivare</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #81ecec, #74b9ff);
+            color: #2d3436;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        input {
+            font-size: 1em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            background: #6c5ce7;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #a29bfe;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #dfe6e9;
+            border: 1px solid #b2bec3;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .back-link {
+            margin-top: 15px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            color: #6c5ce7;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #a29bfe;
+        }
+    </style>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Calculator de Derivate</h1>
+    </header>
+    <div class="container">
+        <form method="POST">
+            <label for="functie">Funcție:</label>
+            <input type="text" name="functie" placeholder="Ex: x^2 + 3*x" required>
+            <label for="variabila">Variabilă:</label>
+            <input type="text" name="variabila" placeholder="Ex: x" required>
+            <button type="submit">Calculează</button>
+        </form>
+        {% if rezultat %}
+            <div class="result">
+                $$\frac{d}{d{{ variabila }}} \left( {{ func_str }} \right) = {{ rezultat }}$$
+            </div>
+        {% endif %}
+        <a href="/" class="back-link">Înapoi la meniul principal</a>
+    </div>
+</body>
+</html>
