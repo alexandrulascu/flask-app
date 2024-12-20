@@ -1,4 +1,0 @@
-flask
-gunicorn
-sympy
-google-cloud-storage==2.9.0
